@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title 3: Revelations</title>
+  <style>
+    div {
+      background-color: lightgreen;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eventos de teclado</h1>
+  <div>
+    <input></input>
+    <input></input>
+    <input></input>
+  </div>
+  <script>
+    const jumpEnter = (e) => {
+      console.log(e.key)
+      console.log(e.keyCode)
+      if (e.keyCode == 13) { //Keycode 13 == 'Enter'
+        e.target.nextElementSibling.focus()
+      }
+    }
+    // document.querySelectorAll('input').forEach(input => input.addEventListener('keypress', jumpEnter))
+    document.querySelector('div').addEventListener('keypress', jumpEnter)
+  </script>
+</body>
+</html>
