@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info</title>
+  <style>
+    #info {
+      background-color: lightgreen;
+      padding: 10px;
+    }
+    ul {
+      background-color: crimson;
+    }
+
+    li {
+      background-color: wheat;
+    }
+  </style>
+</head>
+<body>
+  <h1>Información</h1>
+  <ul></ul>
+  <div id="info"></div>
+  <script>
+    const data = {
+      'Título 1' : 'Párrafo 1. Este es el contenido',
+      'Título 2' : 'Esta es la información del apartado 2',
+      'Título 3' : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quae officia cum illo, similique quidem consectetur necessitatibus. Quasi, at id commodi incidunt dolor iste corrupti vel? Rem quasi non ab?'
+    }
+
+    const list = document.querySelector('ul')
+    const info = document.getElementById('info')
+
+    for (const key in data) {
+      const li = document.createElement('li')
+      li.textContent = key
+      list.append(li)
+      // li.addEventListener('click', () => info.textContent = data[key])
+    }
+
+    list.addEventListener('mouseover', (e) => {
+      if (e.target.tagName === 'LI') {
+        info.textContent = data[e.target.textContent]
+      }
+    })
+  </script>
+</body>
+</html>

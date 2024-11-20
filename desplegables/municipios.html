@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipios</title>
+  <script src="municipios.js"></script>
+  <script src="provincias.js"></script>
+</head>
+<body>
+  <p>Provincia:
+    <select name="district" id="ID">
+      <option disabled selected>Elige una provincia</option>
+    </select>
+  </p>
+  <p hidden id="townParagraph">Municipio:
+    <select name="town" id="ID2">
+      <option disabled selected>Elige un municipio</option>
+    </select>
+  </p>
+  <script>
+    const provinces = document.getElementById('ID')
+    const towns = document.getElementById('ID2')
+
+    PROVINCIAS.forEach(province => {
+      const option = document.createElement('option')
+      option.textContent = province.nombre
+      option.value = province.idProvincia
+      provinces.append(option)
+    })
+
+    provinces.addEventListener('change', () => {
+      document.getElementById('townParagraph').hidden = false
+      console.log('Mostrando...')
+    }, {once: true})
+
+    provinces.addEventListener('change', () => {
+      console.log(provinces.value)
+      const list = MUNICIPIOS.filter(municipio => municipio.idProvincia == provinces.value)
+      // console.log(list)
+      towns.innerHTML = ''
+      list.forEach(municipio => {
+        const option = document.createElement('option')
+        option.textContent = municipio.nombre
+        option.value = municipio.idMunicipio
+        towns.append(option)
+      })
+    })
+
+    towns.addEventListener('change', () => {
+      console.log(towns.value)
+    })
+  </script>
+</body>
+</html>
