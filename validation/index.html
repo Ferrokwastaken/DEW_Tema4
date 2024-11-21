@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validación avanzada de formularios</title>
+  <style>
+    .error {
+      color: #FF0000;
+    }
+  </style>
+  <script src="validation.js" defer></script>
+</head>
+<body>
+  <form id="registrationForm">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username" name="username" required>
+    <span class="error" id="usernameError"></span><br><br>
+
+    <label for="email">Correo electrónico</label>
+    <input type="email" name="email" id="email" required>
+    <span class="error" id="emailError"></span><br><br>
+
+    <label for="age">Edad:</label>
+    <input type="number" name="age" id="age" min="18" max="100" required>
+    <span class="error" id="ageError"></span><br><br>
+
+    <label for="dob">Fecha de Nacimiento:</label>
+    <input type="date" name="dob" id="dob" required>
+    <span class="error dobError"></span><br><br>
+
+    <button type="submit">Registrarse</button>
+  </form>
+</body>
+</html>
